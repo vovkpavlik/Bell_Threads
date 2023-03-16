@@ -5,6 +5,7 @@ class CountPrimeThread extends Thread{
     private int start;
     private int[] array;
     public int countPrime;
+    public int sumNumbers;
 
     public CountPrimeThread(int end, int start, int[] array) {
         this.end = end;
@@ -27,7 +28,17 @@ class CountPrimeThread extends Thread{
         return count;
     }
 
+    private int getSumNumbers() {
+        int sumNumbers = 0;
+        for (int i = start; i <= end; i++) {
+            sumNumbers += i;
+        }
+        return sumNumbers;
+    }
+
+
     public void run() {
         countPrime = countPrimeNumbers();
+        sumNumbers = getSumNumbers();
     }
 }
